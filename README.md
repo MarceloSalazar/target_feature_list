@@ -1,6 +1,6 @@
 ### Compile check
 
-Simple script to get list of targets and features ("device_has")
+Simple script to get list of targets and features ("device_has" and "device_has_add")
 
 ### Usage
 

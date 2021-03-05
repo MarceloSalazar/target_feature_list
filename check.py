@@ -48,16 +48,25 @@ def get_features(target):
             new_dict = dict()
             new_dict[x]='y'
             features.update(new_dict)
-           
+
+    if 'device_has_add' in data[target]:
+        for x in data[target]['device_has_add']:
+            new_dict = dict()
+            new_dict[x]='y'
+            features.update(new_dict)
+            
     return(features)
             
 def get_targets_data():
     # Read targets from targets.json and returns dict with features
-
+    
     targets = dict()
     for i in data:
         if is_public(i) == False:
             continue
+        
+        if "K64" in i:
+            a = 0
         
         features = get_features(i)  
         targets[i]=features

@@ -2,8 +2,8 @@
 
 # Workflow
 # 1. Read from targets.json
-# 2. Create dict targets and features
-# 3. Print list: screen, txt or csv
+# 2. Iterate through inherited targets and get features
+# 3. Print list in screen
 
 import requests
 import os
@@ -65,9 +65,6 @@ def get_targets_data():
         if is_public(i) == False:
             continue
         
-        if "K64" in i:
-            a = 0
-        
         features = get_features(i)  
         targets[i]=features
  
@@ -101,24 +98,11 @@ def print_table(target_list):
 
     print(table)
     
-    
 def main():
-    global args
-
-    # Parser handling
-    parser = ArgumentParser(description="Script to get list of targets/features")
-
-    parser.add_argument(
-        '-m', '--target', dest='target',
-        help='Target name', required=False)
-
-    args = parser.parse_args()
    
     read_targets_json()
     target_list = get_targets_data()
     print_table(target_list)
-
-    exit(0)
 
 if __name__ == "__main__":
     main()

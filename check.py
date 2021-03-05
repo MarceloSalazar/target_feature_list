@@ -22,7 +22,7 @@ data = []
 def read_targets_json():
     global data
     
-    file_name = "../mbed-os/targets/targets.json"  
+    file_name = "./mbed-os/targets/targets.json"  
     with open(file_name) as json_file:
         data = json.load(json_file) 
 
